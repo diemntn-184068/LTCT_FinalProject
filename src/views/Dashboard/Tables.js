@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from 'react';
 // Chakra imports
 import {
   Flex,
@@ -18,15 +18,22 @@ import TablesProjectRow from "components/Tables/TablesProjectRow";
 import TablesTableRow from "components/Tables/TablesTableRow";
 import { tablesProjectData, tablesTableData } from "variables/general";
 
-function Tables() {
+const Tables = () => {
+  const [listAds, setListAds] = useState([]);
   const textColor = useColorModeValue("gray.700", "white");
+
+  useEffect(async () => {
+    // setListAds([])
+    await tablesTableData().then(value => { setListAds(value)} );
+  },[]);
+  console.log(listAds);
 
   return (
     <Flex direction="column" pt={{ base: "120px", md: "75px" }}>
       <Card overflowX={{ sm: "scroll", xl: "hidden" }}>
         <CardHeader p="6px 0px 22px 0px">
           <Text fontSize="xl" color={textColor} fontWeight="bold">
-            Authors Table
+            Quảng Cáo
           </Text>
         </CardHeader>
         <CardBody>
@@ -34,25 +41,28 @@ function Tables() {
             <Thead>
               <Tr my=".8rem" pl="0px" color="gray.400">
                 <Th pl="0px" color="gray.400">
-                  Author
+                  Ảnh
                 </Th>
-                <Th color="gray.400">Function</Th>
+                <Th color="gray.400">Tiêu đề</Th>
+                <Th color="gray.400">Nội dung</Th>
+                <Th color="gray.400">Link quảng cáo</Th>
                 <Th color="gray.400">Status</Th>
-                <Th color="gray.400">Employed</Th>
+                <Th color="gray.400">Thời gian bắt đầu</Th>
+                <Th color="gray.400">Thời gian kết thúc</Th>
                 <Th></Th>
               </Tr>
             </Thead>
             <Tbody>
-              {tablesTableData.map((row) => {
+              {listAds.map((row) => {
                 return (
                   <TablesTableRow
-                    name={row.name}
-                    logo={row.logo}
-                    email={row.email}
-                    subdomain={row.subdomain}
-                    domain={row.domain}
+                    imageURL={row.imageUrl}
+                    title={row.title}
+                    content={row.content}
+                    adsURL={row.advertismentUrl}
                     status={row.status}
-                    date={row.date}
+                    timeStart={row.startAt}
+                    timeEnd={row.endAt}
                   />
                 );
               })}
@@ -60,7 +70,7 @@ function Tables() {
           </Table>
         </CardBody>
       </Card>
-      <Card
+      {/* <Card
         my="22px"
         overflowX={{ sm: "scroll", xl: "hidden" }}
       >
@@ -99,7 +109,7 @@ function Tables() {
             </Tbody>
           </Table>
         </CardBody>
-      </Card>
+      </Card> */}
     </Flex>
   );
 }
