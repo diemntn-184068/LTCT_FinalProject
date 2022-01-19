@@ -11,7 +11,6 @@ import {
 } from "@chakra-ui/react";
 import moment from "moment";
 import React from "react";
-// import { format } from 'date-fns';
 
 function TablesTableRow(props) {
   const { imageURL, title, content, adsURL, status, timeStart, timeEnd } = props;
