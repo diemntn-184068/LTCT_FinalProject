@@ -211,6 +211,31 @@ export const tablesTableData = async () => {
   return response.data.data;
 }
 
+export const tablesTableDataUser = async () => {
+  let response;
+
+  try {
+    response = await axios.get('https://ltct-api.2soft.top/advertisements');
+  } catch (e) {
+    // catch error
+    throw new Error(e.message)
+  }
+  return response.data.data;
+}
+
+export const detailAdvertisement = async (id) => {
+  let response;
+
+  try {
+    response = await axios.get(`https://ltct-api.2soft.top/advertisements/${id}`);
+  } catch (e) {
+    // catch error
+    throw new Error(e.message)
+  }
+  return response.data.data;
+}
+
+
 // axios.get(
 //   'https://ltct-api.2soft.top/admin/advertisements',
 //   config
