@@ -16,6 +16,7 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
 import { tablesTableData, tablesTableDataUser } from "variables/general";
 import TableUserRow from 'components/Tables/TableUserRow';
+import Carousel from 'components/Carousel/Carousel';
 
 export default function Dashboard() {
   const [listAds, setListAds] = useState([]);
@@ -29,6 +30,7 @@ export default function Dashboard() {
 
   return (
     <Flex direction="column" pt={{ base: "120px", md: "75px" }}>
+      <Carousel listAds = {listAds}></Carousel>
       <Card overflowX={{ sm: "scroll", xl: "hidden" }}>
         <CardHeader p="6px 0px 22px 0px">
           <Text fontSize="xl" color={textColor} fontWeight="bold">

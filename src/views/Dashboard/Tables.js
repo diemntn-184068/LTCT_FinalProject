@@ -23,10 +23,9 @@ const Tables = () => {
   const textColor = useColorModeValue("gray.700", "white");
 
   useEffect(async () => {
-    // setListAds([])
     await tablesTableData().then(value => { setListAds(value)} );
   },[]);
-  console.log(listAds);
+  // console.log(listAds);
 
   return (
     <Flex direction="column" pt={{ base: "120px", md: "75px" }}>
