@@ -41,7 +41,6 @@ export default function Carousel(props) {
   // This list contains all the data for carousels
   // This can be static or loaded from a server
   const cards = listAds.map(row => ({title: row.title, text: row.content, image: row.imageUrl}));
-  console.log('123',cards)
 
   return (
     <Box

@@ -13,7 +13,7 @@ import moment from "moment";
 import React from "react";
 
 function TablesTableRow(props) {
-  const { imageURL, title, content, adsURL, status, timeStart, timeEnd } = props;
+  const { id, imageURL, title, content, adsURL, status, timeStart, timeEnd } = props;
   const textColor = useColorModeValue("gray.700", "white");
   const bgStatus = useColorModeValue("gray.400", "#1a202c");
   const colorStatus = useColorModeValue("white", "gray.400");
@@ -21,23 +21,24 @@ function TablesTableRow(props) {
   return (
     <Tr>
       <Td minWidth={{ sm: "50px" }} pl="0px">
-        <Avatar src={imageURL} w="50px" borderRadius="12px" me="18px" />
+        <Link href= {`/purity-ui-dashboard#/advertisement/${id}`}>
+          <Avatar src={imageURL} w="50px" borderRadius="12px" me="18px" />
+        </Link>
       </Td>
       <Td>
-        <Flex direction="column">
+        <Link href= {`/purity-ui-dashboard#/advertisement/${id}`}>
           <Text fontSize="md" color={textColor} fontWeight="bold" pb=".5rem">
             {title}
           </Text>
-        </Flex>
+        </Link>
       </Td>
       <Td>
-        <Flex direction="column">
+        <Link href= {`/purity-ui-dashboard#/advertisement/${id}`}>
           <Text fontSize="md" color={textColor} fontWeight="bold" pb=".5rem">
             {content}
           </Text>
-        </Flex>
+        </Link>
       </Td>
-
       <Td maxWidth={{ sm: "200px" }}>
         <Link fontSize="md" color={textColor} fontWeight="bold" pb=".5rem" href= {adsURL} isExternal>
           {adsURL}

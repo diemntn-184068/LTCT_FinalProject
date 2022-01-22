@@ -55,6 +55,7 @@ const Tables = () => {
               {listAds.map((row) => {
                 return (
                   <TablesTableRow
+                    id={row.id}
                     imageURL={row.imageUrl}
                     title={row.title}
                     content={row.content}
