@@ -11,6 +11,7 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  useDisclosure,
 } from "@chakra-ui/react";
 import React from "react";
 import { useState } from "react";
@@ -18,6 +19,7 @@ import { addDataAdvertisement } from "../../variables/general";
 
 export default function AddAdvertisement(props) {
   const { isOpen, onClose } = props;
+  // const { onClose } = useDisclosure()
 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -58,7 +60,7 @@ export default function AddAdvertisement(props) {
           <ModalHeader>Cập nhật nội dung quảng cáo</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
-            <FormControl>
+            <FormControl isRequired>
               <FormLabel>Tiêu đề</FormLabel>
               <Input
                 onChange={e => {
@@ -71,7 +73,7 @@ export default function AddAdvertisement(props) {
               />
             </FormControl>
 
-            <FormControl mt={4}>
+            <FormControl isRequired mt={4}>
               <FormLabel>Nội dung</FormLabel>
               <Input
                 onChange={e => {
@@ -83,7 +85,7 @@ export default function AddAdvertisement(props) {
               />
             </FormControl>
 
-            <FormControl mt={4}>
+            <FormControl isRequired mt={4}>
               <FormLabel>Link quảng cáo</FormLabel>
               <Input
                 onChange={e => {
@@ -95,7 +97,7 @@ export default function AddAdvertisement(props) {
               />
             </FormControl>
 
-            <FormControl mt={4}>
+            <FormControl isRequired mt={4}>
               <FormLabel>Trạng thái</FormLabel>
               <Input
                 onChange={e => {
@@ -107,7 +109,7 @@ export default function AddAdvertisement(props) {
               />
             </FormControl>
 
-            <FormControl mt={4}>
+            <FormControl isRequired mt={4}>
               <FormLabel>Thời gian bắt đầu</FormLabel>
               <Input
                 onChange={e => {
@@ -119,7 +121,7 @@ export default function AddAdvertisement(props) {
               />
             </FormControl>
 
-            <FormControl mt={4}>
+            <FormControl isRequired mt={4}>
               <FormLabel>Thời gian kết thúc</FormLabel>
               <Input
                 onChange={e => {
@@ -130,7 +132,7 @@ export default function AddAdvertisement(props) {
               />
             </FormControl>
 
-            <FormControl mt={4}>
+            <FormControl isRequired mt={4}>
               <FormLabel>Link ảnh</FormLabel>
               <Input
                 onChange={e => {
@@ -142,7 +144,7 @@ export default function AddAdvertisement(props) {
               />
             </FormControl>
 
-            <FormControl mt={4}>
+            <FormControl isRequired mt={4}>
               <FormLabel>ID của sản phẩm</FormLabel>
               <Input
                 onChange={e => {
@@ -153,7 +155,7 @@ export default function AddAdvertisement(props) {
               />
             </FormControl>
 
-            <FormControl mt={4}>
+            <FormControl isRequired mt={4}>
               <FormLabel>ID của bản khuyến mại</FormLabel>
               <Input
                 onChange={e => {
@@ -167,16 +169,16 @@ export default function AddAdvertisement(props) {
 
           <ModalFooter>
             <Button
-              colorScheme="blue"
+              colorScheme="teal"
               mr={3}
               onClick={async () => {
                 await addDataAdvertisement(advertisementUsing);
                 window.location.reload();
               }}
             >
-              Save
+              Lưu
             </Button>
-            <Button onClick={onClose}>Cancel</Button>
+            <Button onClick={onClose}>Thoát</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

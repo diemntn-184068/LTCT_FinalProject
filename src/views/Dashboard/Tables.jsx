@@ -12,7 +12,9 @@ import {
   Tr,
   useColorModeValue,
   useDisclosure,
+  Icon,
 } from "@chakra-ui/react";
+import { MdAddCircleOutline } from 'react-icons/md'
 // Custom components
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
@@ -40,8 +42,8 @@ const Tables = () => {
           <Text fontSize="xl" color={textColor} fontWeight="bold">
             Quảng Cáo
           </Text>
-          <Button onClick={onOpen}>Tạo quảng cáo</Button>
-          <AddAdvertisement isOpen={isOpen} />
+          <Icon boxSize={'30px'} ml={'5px'} style={{cursor:'pointer'}} as={MdAddCircleOutline} onClick={onOpen} />
+          <AddAdvertisement isOpen={isOpen} onClose={onClose}/>
         </CardHeader>
         <CardBody>
           <Table variant="simple" color={textColor}>

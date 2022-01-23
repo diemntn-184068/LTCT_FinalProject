@@ -3,6 +3,7 @@ import {
   Button,
   FormControl,
   FormLabel,
+  FormErrorMessage,
   Input,
   Modal,
   ModalBody,
@@ -75,7 +76,7 @@ export default function AddOrEditAdvertisement(props) {
           <ModalHeader>Cập nhật nội dung quảng cáo</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
-            <FormControl>
+            <FormControl isRequired>
               <FormLabel>Tiêu đề</FormLabel>
               <Input
                 onChange={e => {
@@ -88,7 +89,7 @@ export default function AddOrEditAdvertisement(props) {
               />
             </FormControl>
 
-            <FormControl mt={4}>
+            <FormControl isRequired mt={4}>
               <FormLabel>Nội dung</FormLabel>
               <Input
                 onChange={e => {
@@ -100,7 +101,7 @@ export default function AddOrEditAdvertisement(props) {
               />
             </FormControl>
 
-            <FormControl mt={4}>
+            <FormControl isRequired mt={4}>
               <FormLabel>Link quảng cáo</FormLabel>
               <Input
                 onChange={e => {
@@ -112,7 +113,7 @@ export default function AddOrEditAdvertisement(props) {
               />
             </FormControl>
 
-            <FormControl mt={4}>
+            <FormControl isRequired mt={4}>
               <FormLabel>Trạng thái</FormLabel>
               <Input
                 onChange={e => {
@@ -124,7 +125,7 @@ export default function AddOrEditAdvertisement(props) {
               />
             </FormControl>
 
-            <FormControl mt={4}>
+            <FormControl isRequired mt={4}>
               <FormLabel>Thời gian bắt đầu</FormLabel>
               <Input
                 onChange={e => {
@@ -136,7 +137,7 @@ export default function AddOrEditAdvertisement(props) {
               />
             </FormControl>
 
-            <FormControl mt={4}>
+            <FormControl isRequired mt={4}>
               <FormLabel>Thời gian kết thúc</FormLabel>
               <Input
                 onChange={e => {
@@ -147,7 +148,7 @@ export default function AddOrEditAdvertisement(props) {
               />
             </FormControl>
 
-            <FormControl mt={4}>
+            <FormControl isRequired mt={4}>
               <FormLabel>Link ảnh</FormLabel>
               <Input
                 onChange={e => {
@@ -159,7 +160,7 @@ export default function AddOrEditAdvertisement(props) {
               />
             </FormControl>
 
-            <FormControl mt={4}>
+            <FormControl isRequired mt={4}>
               <FormLabel>ID của sản phẩm</FormLabel>
               <Input
                 onChange={e => {
@@ -170,7 +171,7 @@ export default function AddOrEditAdvertisement(props) {
               />
             </FormControl>
 
-            <FormControl mt={4}>
+            <FormControl isRequired mt={4}>
               <FormLabel>ID của bản khuyến mại</FormLabel>
               <Input
                 onChange={e => {
@@ -184,7 +185,7 @@ export default function AddOrEditAdvertisement(props) {
 
           <ModalFooter>
             <Button
-              colorScheme="blue"
+              colorScheme="teal"
               mr={3}
               onClick={async () => {
                 const data = await updateDataAdvertisement(
@@ -200,11 +201,12 @@ export default function AddOrEditAdvertisement(props) {
                   setTimeStartState(startAt);
                   setTimeEndState(endAt);
                 }
+                window.location.reload();
               }}
             >
-              Save
+              Lưu
             </Button>
-            <Button onClick={onClose}>Cancel</Button>
+            <Button onClick={onClose}>Thoát</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
