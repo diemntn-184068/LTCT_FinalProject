@@ -28,7 +28,9 @@ You can read more about the <a href="https://demos.creative-tim.com/docs-purity-
 **My Pages**
 ![271592133_676019840230828_754920926571416313_n](https://user-images.githubusercontent.com/87966190/150623550-540db913-5d91-4ee9-9726-93ae1abef0c3.png)
 
-
+## Install
+- npm install
+- npm start
 ## Browser Support
 
 At present, we officially aim to support the last two versions of the following browsers:
